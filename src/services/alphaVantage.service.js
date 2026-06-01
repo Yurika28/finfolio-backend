@@ -1,5 +1,6 @@
 const prisma = require('../config/prisma')
 const { delay } = require('../utils/delay')
+const { STOCK_SYMBOLS, CRYPTO_SYMBOLS } = require('../config/symbols')
 
 const AV_BASE = 'https://www.alphavantage.co/query'
 const AV_KEY = () => process.env.ALPHA_VANTAGE_KEY
@@ -137,8 +138,12 @@ const syncForexRates = async (pairs) => {
 // Returns raw articles for the job to pass as context to Gemini — no DB write needed
 // (MarketNews is owned by Finnhub; AV sentiment is ephemeral context, not stored)
 const getNewsSentiment = async () => {
+  const stockTickers = STOCK_SYMBOLS.join(',')
+  const cryptoTickers = CRYPTO_SYMBOLS.map(s => `CRYPTO:${s}`).join(',')
+  const tickers = `${stockTickers},${cryptoTickers}`
+
   const res = await fetch(
-    `${AV_BASE}?function=NEWS_SENTIMENT&topics=financial_markets&limit=20&apikey=${AV_KEY()}`
+    `${AV_BASE}?function=NEWS_SENTIMENT&tickers=${tickers}&sort=LATEST&apikey=${AV_KEY()}`
   )
   const json = await res.json()
   if (checkRateLimit(json)) return []
