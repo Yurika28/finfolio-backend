@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useRef, useState, KeyboardEvent } from 'react'
-import { useRouter } from 'next/navigation'
 import Navbar from '@/components/features/navigation-bar'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'

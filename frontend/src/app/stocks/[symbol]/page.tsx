@@ -4,7 +4,6 @@ import Navbar from '@/components/features/navigation-bar'
 import { StockChart } from '@/components/stocks/StockChart'
 import { ErrorMessage } from '@/components/shared/ErrorMessage'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useStockQuote, useStockProfile } from '@/hooks/useStocks'
 import { useCompanyNews } from '@/hooks/useNews'
@@ -17,7 +16,7 @@ import type { ICompanyNews } from '@/types/api.types'
 function NewsItem({ item }: { item: ICompanyNews }) {
   return (
     <a
-      href={item.url}
+      href={item.url ?? undefined}
       target="_blank"
       rel="noopener noreferrer"
       className="block p-4 rounded-lg border border-zinc-800 hover:border-zinc-600 hover:bg-zinc-900 transition-colors"

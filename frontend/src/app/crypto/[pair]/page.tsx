@@ -82,7 +82,7 @@ export default function CryptoPairPage({ params }: { params: Promise<{ pair: str
               {cryptoNews.slice(0, 6).map((item, i) => (
                 <a
                   key={i}
-                  href={item.url}
+                  href={item.url ?? undefined}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block p-4 rounded-lg border border-zinc-800 hover:border-zinc-600 hover:bg-zinc-900 transition-colors"

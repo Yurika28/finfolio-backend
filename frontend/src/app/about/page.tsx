@@ -42,7 +42,7 @@ export default function AboutPage() {
             <section className="space-y-4">
                 <h2 className="text-2xl font-semibold text-accent">Join the Pulse</h2>
                 <p className="text-muted-foreground">
-                Whether you're tracking tickers, exploring trends, or researching companies, FinPulse is your companion for smarter market decisions.
+                Whether you&apos;re tracking tickers, exploring trends, or researching companies, FinPulse is your companion for smarter market decisions.
                 </p>
             </section>
         </main>

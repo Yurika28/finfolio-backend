@@ -16,7 +16,7 @@ const generate = async (prompt) => {
       config: { thinkingConfig: { thinkingBudget: 0 } }
     })
     const text = response.text
-    if (!text) throw new Error('Empty response from Gemini')
+    if (!text || !text.trim()) throw new Error('Empty response from Gemini')
     return text
   } catch (err) {
     console.error('[Gemini] generateContent failed:', err?.message ?? err)

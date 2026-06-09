@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -31,12 +32,14 @@ function NewsSentimentCard({ item }: { item: INewsSentiment }) {
   return (
     <Card className="bg-zinc-900 border-zinc-800 hover:border-zinc-600 transition-colors flex flex-col">
       {item.bannerImage && (
-        <div className="w-full h-40 overflow-hidden rounded-t-xl">
-          <img
+        <div className="relative w-full h-40 overflow-hidden rounded-t-xl">
+          <Image
             src={item.bannerImage}
             alt=""
-            className="w-full h-full object-cover"
-            onError={e => { (e.target as HTMLImageElement).style.display = 'none' }}
+            fill
+            className="object-cover"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
+            unoptimized
           />
         </div>
       )}

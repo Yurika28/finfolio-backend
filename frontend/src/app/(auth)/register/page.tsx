@@ -26,8 +26,9 @@ export default function RegisterPage() {
       const res = await authService.register({ name, email, password })
       login(res.data.token, res.data.user)
       router.push('/')
-    } catch (err: any) {
-      setError(err.response?.data?.error || 'Registration failed')
+    } catch (err) {
+      const e = err as { response?: { data?: { error?: string } } }
+      setError(e.response?.data?.error ?? 'Registration failed')
     } finally {
       setLoading(false)
     }

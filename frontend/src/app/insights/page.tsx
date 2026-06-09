@@ -31,6 +31,7 @@ export default function InsightsPage() {
   const stock   = useStockInsight()
   const [ticker, setTicker] = useState('')
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { market.fetch() }, [])
 
   return (

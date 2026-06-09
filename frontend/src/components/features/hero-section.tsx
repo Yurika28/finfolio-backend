@@ -1,5 +1,6 @@
 // src/components/Hero.tsx
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -30,9 +31,11 @@ export default function Hero() {
         {/* Right / Graphic side */}
         <div className="w-full lg:w-1/2 mb-12 lg:mb-0 flex justify-center">
           {/* Ideally an SVG or image showing chart, data etc. */}
-          <img
+          <Image
             src="/company-logo.png"
             alt="Live chart preview"
+            width={500}
+            height={500}
             className="w-54 sm:w-64 md:w-80 lg:w-full max-w-md object-contain"
           />
         </div>

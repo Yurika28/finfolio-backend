@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { PriceBadge } from '@/components/shared/PriceBadge'
 import { changeColor } from '@/utils/formatChange'
 import type { IStockQuote } from '@/types/api.types'
 

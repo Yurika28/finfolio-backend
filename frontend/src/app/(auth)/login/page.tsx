@@ -24,8 +24,9 @@ export default function LoginPage() {
       const res = await authService.login({ email, password })
       login(res.data.token, res.data.user)
       router.push('/')
-    } catch (err: any) {
-      const message = err.response?.data?.error || 'Invalid email or password'
+    } catch (err) {
+      const e = err as { response?: { data?: { error?: string } } }
+      const message = e.response?.data?.error || 'Invalid email or password'
       toast.error('Sign in failed', { description: message, position: 'top-center' })
     } finally {
       setLoading(false)

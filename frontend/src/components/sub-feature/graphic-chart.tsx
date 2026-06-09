@@ -24,7 +24,7 @@ interface PriceChartProps<T> {
   };
 }
 
-export function PriceChart<T extends Record<string, any>>({
+export function PriceChart<T extends Record<string, unknown>>({
   data,
   dataKey,
   xAxisKey,

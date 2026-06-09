@@ -53,7 +53,7 @@ export default function PortfolioPage() {
             <h1 className="text-2xl sm:text-3xl font-bold text-white">Portfolio</h1>
             <p className="text-zinc-400 text-sm mt-1">Your watchlist and holdings</p>
           </div>
-          <Tabs value={tab} onValueChange={v => setTab(v as any)}>
+          <Tabs value={tab} onValueChange={v => setTab(v as 'watchlist' | 'holdings')}>
             <TabsList className="bg-zinc-900 border border-zinc-800">
               <TabsTrigger value="watchlist">Watchlist</TabsTrigger>
               <TabsTrigger value="holdings">Holdings</TabsTrigger>
